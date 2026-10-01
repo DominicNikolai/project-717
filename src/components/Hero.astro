@@ -1,13 +1,13 @@
 ---
 interface Metric {
-  label: string
-  value: string
-  accent: boolean
+  label: string;
+  value: string;
+  accent: boolean;
 }
 
 interface DayBar {
-  label: string
-  value: number
+  label: string;
+  value: number;
 }
 
 const dayLabels = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
@@ -15,7 +15,7 @@ const dayLabels = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 const metrics: Metric[] = [
   { label: 'Promedio', value: '78.4', accent: false },
   { label: 'Máximo', value: '96.2', accent: true },
-  { label: 'Mínimo', value: '61.8', accent: false },
+  { label: 'Mínimo', value: '61.8', accent: false }
 ];
 
 const bars: DayBar[] = [
@@ -23,7 +23,7 @@ const bars: DayBar[] = [
   { label: 'Mar', value: 81 },
   { label: 'Mié', value: 68 },
   { label: 'Jue', value: 89 },
-  { label: 'Vie', value: 94 },
+  { label: 'Vie', value: 94 }
 ];
 
 const chartPoints = [
@@ -33,7 +33,7 @@ const chartPoints = [
   { x: 200, y: 65 },
   { x: 255, y: 55 },
   { x: 315, y: 48 },
-  { x: 375, y: 30 },
+  { x: 375, y: 30 }
 ];
 
 const linePath =
@@ -66,14 +66,13 @@ const linePath =
 
     <div class='analytics__ring'>
       <svg class='analytics__ring-svg' viewBox='0 0 64 64'>
-        <circle class='analytics__ring-track' cx='32' cy='32' r='27' />
+        <circle class='analytics__ring-track' cx='32' cy='32' r='27'></circle>
         <circle
           class='analytics__ring-value'
           cx='32'
           cy='32'
           r='27'
-          pathLength='100'
-        />
+          pathLength='100'></circle>
       </svg>
       <span class='analytics__ring-label'>85</span>
     </div>
@@ -106,17 +105,13 @@ const linePath =
       <path class='analytics__line' d={linePath}></path>
 
       <g class='analytics__dots'>
-        {
-          chartPoints.map(({ x, y }) => (
-            <circle cx={x} cy={y} r='4' />
-          ))
-        }
+        {chartPoints.map(({ x, y }) => <circle cx={x} cy={y} r='4' />)}
       </g>
     </svg>
   </div>
 
   <div class='analytics__labels'>
-    {dayLabels.map((day) => <span>{day}</span>)}
+    {dayLabels.map(day => <span>{day}</span>)}
   </div>
 
   <div class='analytics__foot'>
@@ -159,10 +154,7 @@ const linePath =
                 <div class='analytics__bar-main'>
                   <span class='analytics__bar-id'>{label}</span>
                   <div class='analytics__bar-track'>
-                    <div
-                      class='analytics__bar-fill'
-                      style={`--v: ${value}`}
-                    />
+                    <div class='analytics__bar-fill' style={`--v: ${value}`} />
                   </div>
                 </div>
                 <span class='analytics__bar-value'>{value}%</span>
